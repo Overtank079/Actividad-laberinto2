@@ -22,7 +22,7 @@ public class MovementPlayerController : MonoBehaviour
         move.action.performed += OnMove;
         move.action.canceled += OnMove;
 
-        InputSystem.onAnyButtonPress.CallOnce(ctrl => Debug.Log($"Button {ctrl} was pressed on Device´{ctrl.devicename} ");
+        
     }
     private void Update()
     {
