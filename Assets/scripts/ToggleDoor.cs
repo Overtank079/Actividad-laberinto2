@@ -3,12 +3,15 @@ using UnityEngine;
 
 public class ToggleDoor : MonoBehaviour
 {
-    Animator Anim;
+    Animator DoorToOpenA;
+    Animator DAnim;
+    [SerializeField] GameObject DoorToOpen;
     Boolean isOpen = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-       Anim = GetComponent<Animator>();
+        DoorToOpenA = DoorToOpen.GetComponent<Animator>();
+         DAnim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -22,12 +25,17 @@ public class ToggleDoor : MonoBehaviour
         if (isOpen == false)
         {
             isOpen = true;
-            Anim.SetBool("Open", true);
+            DoorToOpenA.SetBool("Open", true);
         }
         else if (isOpen == true)
         {
             isOpen = false;
-            Anim.SetBool("Open", false);
+            DoorToOpenA.SetBool("Open", false);
         }
+    }
+    public void ButtonPress()
+    {
+
+            DAnim.SetBool("Pressed", true);
     }
 }
