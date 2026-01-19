@@ -1,20 +1,15 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class Traps : MonoBehaviour
 {
     [SerializeField] Animator TrapAnimation;
     [SerializeField] GameObject Player;
-    [SerializeField] private TextMeshProUGUI DeathCountText;
     bool Playerinside = false;
-    int Muertes = 0;
     bool Respawn = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        DeathCountText.text = "Muertes: " + Muertes;
+    void Start(){
         TrapAnimation.SetBool("IsReady?", true);
     }
 
@@ -32,8 +27,7 @@ public class Traps : MonoBehaviour
         {
             Respawn = true;
             Player.transform.position = new Vector3(-7, 1, 0);
-            Muertes++;
-            DeathCountText.text = "Muertes: " + Muertes;
+            DeathCounter.Instance.MuertesC();
 
         }
     }
